@@ -74,6 +74,25 @@ public class DoublyLinkedList <T extends Comparable<T>> {
 
    public int getIndex(Album album) {
 
+       //Return the position of the node having the value of given data.
+       int index = 1;
+       if(this.head == null){
+           index = 0;
+           System.out.println("Empty List");
+       }
+       else{
+           Node tempNode = this.head;
+           while (tempNode != null) {
+               if (tempNode.album.compareTo(album)==0)
+                   return index;
+               else{
+                   tempNode = tempNode.next;
+                   index++;
+               }
+           }
+       }
+       return -1;
+
 
     }
 
