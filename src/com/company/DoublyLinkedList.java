@@ -36,8 +36,38 @@ public class DoublyLinkedList <T extends Comparable<T>> {
         return toAppend;
     }
 
+    public Node deleteNode(Node del){
+        if (head == null || del == null){
+            return null;
+        }
+        if (head == del){
+            head = del.next;
+        }
+        if (del.next != null){
+            del.next.previous = del.previous;
+        }
+        if (del.previous != null){
+            del.previous.next = del.next;
+        }
+        del = null;
+        return head;
+    }
 
     public Node delete(int location) throws IllegalArgumentException{
+
+
+            Node toDelete = head;
+            int i;
+
+            for (i = 1; toDelete != null && i < location; i++){
+                toDelete = toDelete.next;
+
+            }
+
+            if (toDelete == null) {throw new IllegalArgumentException("Location not found");}
+
+            deleteNode(toDelete);
+            return toDelete;
 
     }
 
