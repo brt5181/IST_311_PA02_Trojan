@@ -72,28 +72,28 @@ public class DoublyLinkedList <T extends Comparable<T>> {
     }
 
 
-    public int getIndex(Album album) {
+   public int getIndex(Album album) {
 
 
     }
 
 
-    public Node insert(int location, Album album) throws IllegalArgumentException{
+   // public Node insert(int location, Album album) throws IllegalArgumentException{
 
 
-    }
+   //}
 
 
-    public Node shuffle() {
+   // public Node shuffle() {
 
 
-    }
+   // }
 
 
-    public DoublyLinkedList<Album> partition(Album album) {
+   // public DoublyLinkedList<Album> partition(Album album) {
 
 
-    }
+   // }
 
 
     @Override

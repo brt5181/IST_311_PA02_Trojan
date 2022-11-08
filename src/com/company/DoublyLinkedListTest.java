@@ -59,8 +59,15 @@ class DoublyLinkedListTest {
         assertEquals(2, dll.append(a2).album.numberOfSongs);
 
         Album a3 = new Album(3, artistNames, "album 3", 3);
+        assertEquals(3, dll.append(a3).album.numberOfSongs);
 
-
+        dll.delete(3);
+        assertEquals("1 -> 2 -> NULL", dll.toString());
+        //this shows delete at location is correct
+        dll.delete(1);
+        dll.delete(1);
+        //the line below will throw illegal argument exception
+        dll.delete(1);
 
 
 
