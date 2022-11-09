@@ -91,7 +91,7 @@ class DoublyLinkedListTest {
         dll.delete(1);
         dll.delete(1);
         //the line below will throw illegal argument exception
-        dll.delete(1);
+        //dll.delete(1);
 
 
 
@@ -167,8 +167,9 @@ class DoublyLinkedListTest {
 
         Album a3 = new Album(3, artistNames, "album 3", 3);
         assertEquals(3, dll.append(a3).album.numberOfSongs);
+        assertEquals("1 -> 2 -> 3 -> NULL", dll.toString());
         dll = dll.partition(a2);
-        assertEquals("", dll.toString());
+        assertEquals("2 -> 3 -> NULL", dll.toString());
 
 
     }

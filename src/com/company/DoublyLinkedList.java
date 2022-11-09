@@ -162,8 +162,8 @@ public class DoublyLinkedList <T extends Comparable<T>> {
                    partitioned.append(tempNode.album);
                }
                tempNode = tempNode.next;
-               tempNode.previous = tail;
-               tail = tail.next;
+               //tempNode.previous = tail;
+               //tail = tail.next;
            }
        }
        return partitioned;
