@@ -1,6 +1,9 @@
 package com.company;
 
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class DoublyLinkedList <T extends Comparable<T>> {
 
     protected Node head;
@@ -120,15 +123,52 @@ public class DoublyLinkedList <T extends Comparable<T>> {
 
 
    public Node shuffle() {
+       //shuffling with every alternate node
+       Node tempNode = this.head;
+       ArrayList<> arrayList = new ArrayList<>();
+       if(tempNode==null) System.out.println("Empty List");
+       else {
+           while (tempNode != null) {
+               arrayList.add(tempNode.album);
+               tempNode = tempNode.next;
+               tempNode.previous = tail;
+               tail = tail.next;
+           }
+           int tmp = arrayList.size() - (arrayList.size()%2);
+           for (int i = 0; i < tmp; i = i + 2) {
+               Collections.swap(arrayList, i, i + 1);
+           }
+           tempNode = this.head;
+           for (int i = 0; i < arrayList.size(); i++) {
+               tempNode = (Node) arrayList.get(i);
+               tempNode = tempNode.next;
+               tempNode.previous = tail;
+               tail = tail.next;
+           }
+       }
+       return this.shuffle();
 
 
     }
 
 
-   // public DoublyLinkedList<Album> partition(Album album) {
+   public DoublyLinkedList<Album> partition(Album album) {//returning partitioned SLL with nodes having value greater than given data
+       DoublyLinkedList partitioned = new DoublyLinkedList();
+       Node tempNode = this.head;
+       if(tempNode==null) System.out.println("Empty List");
+       else{
+           while(tempNode!=null){
+               if(tempNode.album.compareTo(album)>=0){
+                   partitioned.append(tempNode.album);
+               }
+               tempNode = tempNode.next;
+               tempNode.previous = tail;
+               tail = tail.next;
+           }
+       }
+       return partitioned;
 
-
-   // }
+    }
 
 
     @Override
