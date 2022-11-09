@@ -145,7 +145,8 @@ class DoublyLinkedListTest {
 
         Album a3 = new Album(3, artistNames, "album 3", 3);
         assertEquals(3, dll.append(a3).album.numberOfSongs);
-
+        dll.shuffle();
+        assertEquals("NULL", dll.toString());
 
     }
 
