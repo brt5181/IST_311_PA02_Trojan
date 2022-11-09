@@ -97,16 +97,32 @@ public class DoublyLinkedList <T extends Comparable<T>> {
     }
 
 
-   // public Node insert(int location, Album album) throws IllegalArgumentException{
+   public Node insert(int location, Album album) throws IllegalArgumentException{//Insert new node with data at given position and update the linked list.
+       Node insertNode = new Node(album);
+       if(this.head==null) {
+           if (location>1 ) System.out.println("Inserting in an Empty List");
+           this.head = insertNode;
+       }
+       else{
+           //Insert new Node at given position in a nonempty list.
+           int pos = 1;
+           Node tempNode = this.head;
+           while((pos < (location-1)) && (tempNode.next!=null)){
+               tempNode = tempNode.next;
+               pos++;
+           }
+           insertNode.next = tempNode.next;
+           tempNode.next = insertNode;
+       }
+       return insertNode;
+
+   }
 
 
-   //}
+   public Node shuffle() {
 
 
-   // public Node shuffle() {
-
-
-   // }
+    }
 
 
    // public DoublyLinkedList<Album> partition(Album album) {
