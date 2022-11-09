@@ -100,7 +100,8 @@ public class DoublyLinkedList <T extends Comparable<T>> {
     }
 
 
-   public Node insert(int location, Album album) throws IllegalArgumentException{//Insert new node with data at given position and update the linked list.
+   public Node insert(int location, Album album) throws IllegalArgumentException{
+        //Insert new node with data at given position and update the linked list.
        Node insertNode = new Node(album);
        if(this.head==null) {
            if (location>1 ) System.out.println("Inserting in an Empty List");
@@ -125,11 +126,10 @@ public class DoublyLinkedList <T extends Comparable<T>> {
    public Node shuffle() {
        //shuffling with every alternate node
        Node tempNode = this.head;
-       ArrayList<> arrayList = new ArrayList<>();
+       ArrayList<Node> arrayList = new ArrayList<>();
        if(tempNode==null) System.out.println("Empty List");
        else {
            while (tempNode != null) {
-               arrayList.add(tempNode.album);
                tempNode = tempNode.next;
                tempNode.previous = tail;
                tail = tail.next;
